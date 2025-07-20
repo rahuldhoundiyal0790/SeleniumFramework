@@ -1,22 +1,32 @@
 package tests;
 
-import org.testng.annotations.DataProvider;
+import com.mypages.HomePage;
+import com.mypages.LoginPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.ExcelUtil;
 import base.BaseTest;
-import pages.LoginPage;
 
 public class LoginTest extends BaseTest {
 
-    @DataProvider(name = "loginData")
-    public Object[][] getData() {
-        return ExcelUtil.readExcelData("test-data/data.xlsx", "Sheet1");
+    @Test(priority = 1)
+    public void verifyLoginPageTitleTest(){
+     String title = page.getInstance(LoginPage.class).getLoginPageTitle();
+     System.out.println(title);
+     Assert.assertEquals(title, "OrangeHRM");
+ }
+
+    @Test(priority = 2)
+    public void verifyLoginPageHeaderTest(){
+        String header = page.getInstance(LoginPage.class).getLoginPageHeader();
+        System.out.println(header);
+        
+        Assert.assertEquals(header, "Login");
     }
 
-    @Test(dataProvider = "loginData")
-    public void loginTest(String username, String password) {
-        driver.get("https://example.com/login");
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(username, password);
+    @Test(priority = 3)
+        public void doLoginTest(){
+       HomePage homePage= page.getInstance(LoginPage.class).doLogin("Admin","admin123");
+       String headerHome = homePage.getHomePageHeader();
+       System.out.println(headerHome);
     }
 }

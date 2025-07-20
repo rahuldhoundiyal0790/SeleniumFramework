@@ -8,10 +8,10 @@ public class LoginPage extends BasePage{
 
 
     //page locator
-    private By username = By.id("username");
-    private By password = By.id("password");
-    private By loginButton = By.id("loginBtn");
-    private By header = By.xpath("//i18n-string[@data-key='login.signupLink.text']");
+    private By username = By.name("username");
+    private By password = By.name("password");
+    private By loginButton = By.className("orangehrm-login-button");
+    private By header = By.className("orangehrm-login-title");
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -36,7 +36,7 @@ public class LoginPage extends BasePage{
         return getPageTitle();
     }
 
-    public String getPageHeader(){
+    public String getLoginPageHeader(){
         return getPageHeader(header);
     }
 

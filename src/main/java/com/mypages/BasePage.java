@@ -23,6 +23,7 @@ public class BasePage extends Page{
 
     @Override
     public WebElement getElement(By locator) {
+        waitForElementPresent(locator);
         WebElement element = null;
         try{
             element = driver.findElement(locator);
