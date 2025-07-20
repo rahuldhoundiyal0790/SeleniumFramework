@@ -19,7 +19,6 @@ public class LoginTest extends BaseTest {
     public void verifyLoginPageHeaderTest(){
         String header = page.getInstance(LoginPage.class).getLoginPageHeader();
         System.out.println(header);
-        
         Assert.assertEquals(header, "Login");
     }
 

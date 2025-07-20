@@ -1,34 +1,40 @@
-# Data-Driven Selenium Framework (Java + TestNG)
+# OrangeHRM Automation Testing Framework
 
-## Features
-- Selenium WebDriver with Page Object Model
-- TestNG for test management
-- Apache POI for Excel-based data-driven testing
-- Maven for dependency management
+## Overview
+
+This project is a Java-based automation framework using Maven and TestNG. It tests the login functionality of the OrangeHRM application.
+
+## Technologies Used
+
+- Java
+- Maven
+- TestNG
 
 ## Project Structure
-```
-src/
-├── test/
-│   ├── java/
-│   │   ├── base/          # Base test setup (WebDriver config)
-│   │   ├── pages/         # Page Object classes
-│   │   ├── tests/         # TestNG test classes
-│   │   └── utils/         # Excel utility
-test-data/                 # Excel data for tests
-pom.xml                    # Maven project file
-testng.xml                 # TestNG suite file
-```
 
-## How to Run
-1. Ensure ChromeDriver is present at `drivers/chromedriver`
-2. Run using IntelliJ or command line:
-```
-mvn clean test
-```
+- `src/main/java/com/mypages/` - Page Object Model classes (e.g., `LoginPage`, `HomePage`)
+- `src/test/java/tests/` - Test classes (e.g., `LoginTest`)
+- `base/` - Base test setup and utilities
 
-## Create Runnable Jar
-```
-mvn clean package
-```
-This will create a `.jar` file in the `target` folder.
+## How to Run Tests
+
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run the tests using Maven:
+4. mvn test
+
+5. ## Test Cases
+
+- Verify login page title
+- Verify login page header
+- Perform login and verify home page header
+
+## Requirements
+
+- Java 8+
+- Maven
+- IntelliJ IDEA (recommended)
+
+## Author
+
+rahuldhoundiyal0790
